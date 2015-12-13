@@ -8,7 +8,7 @@
 // @match        https://devbest.com/
 // @require      https://greasyfork.org/scripts/14637-arrive-js/code/Arrivejs.js?version=92469
 // @require      https://cdn.jsdelivr.net/jquery.notification/1.0.3/jquery.notification.min.js
-/*/ @require      https://greasyfork.org/scripts/14852-patreon-lib/code/Patreonlib.js?version=93835 */
+// @require      https://greasyfork.org/scripts/14852-patreon-lib/code/Patreonlib.js?version=93835
 // @grant        unsafeWindow
 // @grant        GM_registerMenuCommand
 // @grant        GM_openInTab
