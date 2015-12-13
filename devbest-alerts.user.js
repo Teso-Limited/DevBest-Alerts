@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         DevBest Alerts
 // @namespace    http://tesomayn.com/
-// @version      1.5.0
+// @version      1.5.1
 // @description  Get Notifications for DevBest Shoutbox
 // @author       TesoMayn
 // @copyright    2015
 // @match        https://devbest.com/
 // @require      https://greasyfork.org/scripts/14637-arrive-js/code/Arrivejs.js?version=92469
 // @require      https://cdn.jsdelivr.net/jquery.notification/1.0.3/jquery.notification.min.js
-// @require      https://greasyfork.org/scripts/14852-patreon-lib/code/Patreonlib.js?version=93835
+/*/ @require      https://greasyfork.org/scripts/14852-patreon-lib/code/Patreonlib.js?version=93835 */
 // @grant        unsafeWindow
 // @grant        GM_registerMenuCommand
 // @grant        GM_openInTab
@@ -23,8 +23,8 @@ $(document).ready( function() {
     const desktopAlerts  = true;  // Chrome Desktop Notifications
     const mobileAlerts   = false; // Keep false, this is not implemented
 
-    const alertUsers = ["TesoMayn"]; // Usernames that you get alerted by
-    const alertNames = [""]; // Your username (keep current formt as currently is not case-insensative)
+    const alertUsers = ["Canadian", "RastaLulz", "Donkee", "Sledmore", "Sysode"]; // Usernames that you get alerted by
+    const alertNames = ["Teso", "teso", "TesoMayn", "tesomayn", "Tesomayn"]; // Your username (keep current formt as currently is not case-insensative)
     ///////////////////////////////////////////////////////////////
 
 
@@ -112,25 +112,8 @@ $(document).ready( function() {
             }
             return false;
         }
-
-        const listCommands = ["/alert"]
-
-        var thirtySecondsAgo = currentTime - (0.5 * 60);
-
-        if(messageTime > thirtySecondsAgo) {
-            if (checkArray(getMessage, listCommands) == true) {
-                if (getAuthor == "TesoMayn") {
-                    if(getMessage.indexOf("/alert") != -1) {
-                        var msg = getMessage.split('/alert');
-                        var opt = {
-                            iconUrl: 'https://devbest.com/data/avatars/l/8/8605.jpg',
-                            title: 'Notice From: TesoMayn',
-                            body: msg[1]
-                        };
-                        $.notification(opt).then(function (sendAlert) {});
-                    }
-                }
-            }
-        }
+        
     });
+    $('<li><a href="#">DevBest Alerts v' +  GM_info.script.version + '</a></li>').appendTo('ul.secondaryContent.blockLinksList');
 });
+
