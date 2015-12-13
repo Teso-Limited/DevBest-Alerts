@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DevBest Alerts
 // @namespace    http://tesomayn.com/
-// @version      1.5.3
+// @version      1.5.4
 // @description  Get Notifications for DevBest Shoutbox
 // @author       TesoMayn
 // @copyright    2015
