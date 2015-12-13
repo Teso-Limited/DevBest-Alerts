@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DevBest Alerts
 // @namespace    http://tesomayn.com/
-// @version      1.5.1
+// @version      1.5.2
 // @description  Get Notifications for DevBest Shoutbox
 // @author       TesoMayn
 // @copyright    2015
@@ -23,8 +23,8 @@ $(document).ready( function() {
     const desktopAlerts  = true;  // Chrome Desktop Notifications
     const mobileAlerts   = false; // Keep false, this is not implemented
 
-    const alertUsers = ["Canadian", "RastaLulz", "Donkee", "Sledmore", "Sysode"]; // Usernames that you get alerted by
-    const alertNames = ["Teso", "teso", "TesoMayn", "tesomayn", "Tesomayn"]; // Your username (keep current formt as currently is not case-insensative)
+    const alertUsers = ["TesoMayn"]; // Usernames that you get alerted by
+    const alertNames = [""]; // Your username (keep current formt as currently is not case-insensative)
     ///////////////////////////////////////////////////////////////
 
 
