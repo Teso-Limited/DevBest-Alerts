@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DevBest Alerts
 // @namespace    http://tesomayn.com/
-// @version      1.5.4
+// @version      1.5.5
 // @description  Get Notifications for DevBest Shoutbox
 // @author       TesoMayn
 // @copyright    2015
@@ -16,15 +16,16 @@
 // @grant        GM_setValue
 // ==/UserScript==
 
+/* jshint esnext: true */
+
 $(document).ready( function() {
 
     ////////////////////// Configuration ///////////////////////////
     const consoleLogging = false; // This is for debugging
     const desktopAlerts  = true;  // Chrome Desktop Notifications
-    const mobileAlerts   = false; // Keep false, this is not implemented
 
-    const alertUsers = ["TesoMayn"]; // Usernames that you get alerted by
-    const alertNames = [""]; // Your username (keep current formt as currently is not case-insensative)
+    const alertUsers = ["Canadian", "RastaLulz", "Donkee", "Sledmore", "Sysode"]; // Usernames that you get alerted by
+    const alertNames = ["Teso", "teso", "TesoMayn", "tesomayn", "Tesomayn"]; // Your username (keep current formt as currently is not case-insensative)
     ///////////////////////////////////////////////////////////////
 
 
@@ -36,7 +37,7 @@ $(document).ready( function() {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    if (GM_getValue("firstRun", "") != true) {
+    if (GM_getValue("firstRun", "") !== true) {
         GM_setValue("firstRun", true);
         alert("Be sure to set your configuraton!");
     }
@@ -55,7 +56,7 @@ $(document).ready( function() {
         var message12Time   = $(this).find('.DateTime').attr('title');
         ///////////////////////////////////////////////////////////////
 
-        if (checkArray(getMessage, alertNames) == true) {
+        if (checkArray(getMessage, alertNames) === true) {
             if ( $.inArray(getAuthor, alertUsers) != -1 ) {
 
                 getAvatar = getAvatar.replace("avatars/s", "avatars/l");
@@ -63,13 +64,13 @@ $(document).ready( function() {
                 if(messageTime > fiveMinutesAgo) {
 
                     ///////////////////////// Console Log /////////////////////////
-                    if ( consoleLogging == true ) {
+                    if ( consoleLogging === true ) {
                         console.log("PINGED BY " + getAuthor + " ON " + message12Time);
                     }
                     ///////////////////////////////////////////////////////////////
 
                     //////////////////// Chrome Notifications ////////////////////
-                    if ( desktopAlerts == true ) {
+                    if ( desktopAlerts === true ) {
                         var options = {
                             iconUrl: getAvatar,
                             title: 'Ping From: ' + getAuthor,
@@ -82,29 +83,9 @@ $(document).ready( function() {
                         });
                     }
                     //////////////////////////////////////////////////////////////
-
-                    /////////////////////////// Mobile //////////////////////////
-                    if ( mobileAlerts == true ) {
-                        $.ajax({
-                            type : "POST",
-                            url : "",
-                            data : { 
-                                message : getMessage,
-                                title : "Ping From: " + getAuthor
-                            },
-                            success: function(data){
-                                console.log("Success");
-                            },
-                            error: function(jqxhr) {
-                                console.log(jqxhr.responseText);
-                            }
-                        });
-                    }
-                    /////////////////////////////////////////////////////////////
-
-                }                
-            }            
-        };        
+                }
+            }
+        }
         function checkArray(str, arr){
             for(var i=0; i < arr.length; i++){
                 if(str.match((".*" + arr[i].trim() + ".*").replace(" ", ".*")))
@@ -112,8 +93,7 @@ $(document).ready( function() {
             }
             return false;
         }
-        
+
     });
     $('<li><a href="#">DevBest Alerts v' +  GM_info.script.version + '</a></li>').appendTo('ul.secondaryContent.blockLinksList');
 });
-
