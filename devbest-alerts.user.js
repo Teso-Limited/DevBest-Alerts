@@ -24,8 +24,8 @@ $(document).ready( function() {
     const consoleLogging = false; // This is for debugging
     const desktopAlerts  = true;  // Chrome Desktop Notifications
 
-    const alertUsers = ["Canadian", "RastaLulz", "Donkee", "Sledmore", "Sysode"]; // Usernames that you get alerted by
-    const alertNames = ["Teso", "teso", "TesoMayn", "tesomayn", "Tesomayn"]; // Your username (keep current formt as currently is not case-insensative)
+    const alertUsers = ["TesoMayn"]; // Usernames that you get alerted by
+    const alertNames = [""]; // Your username (keep current formt as currently is not case-insensative)
     ///////////////////////////////////////////////////////////////
 
 
